@@ -86,8 +86,8 @@ function Game(ui={}) {
     let nextTick = lastTick + tickLength;
     let numTicks = 0; // Nombre de tick a effectuer dans l'update
     if (tFrame > nextTick) {
-      const elapsedTick = tFrame - lastTick;
-      numTicks = Math.trunc( elapsedTick / tickLength );
+      const deltaTime = tFrame - lastTick;
+      numTicks = Math.trunc( deltaTime / tickLength );
       if (numTicks > 100)  // Si numTicks est trop grands, la page a été en veille ou le jeu ram.
         console.log("The game was asleep");
     }

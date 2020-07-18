@@ -13,12 +13,12 @@ const pointInsidePoly = (point, vertices) => {
   let prevSide;
   const vertNum = vertices.length;
   for (let i=0; i<vertNum; i++) {
-    let a = vertices[i],
+    const a = vertices[i],
       b = vertices[(i+1)%vertNum];
 
-    affineSegment = Vector.subVec(a, b);
-    affinePoint = Vector.subVec(point, a);
-    currentSide = getSide(affineSegment, affinePoint);
+    const affineSegment = Vector.subVec(b, a);
+    const affinePoint = Vector.subVec(point, a);
+    const currentSide = getSide(affineSegment, affinePoint);
     if (! currentSide)
       return false; //outside or over an edge
     if (! prevSide) //first segment
