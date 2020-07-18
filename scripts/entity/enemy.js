@@ -48,7 +48,7 @@ function TriEnemy(x, y, customProp) {
     if (rb.angle === targetAngle && timeSinceShoot + shootDelay < ms ) {
       // We take the shot
       this.shootIndex.forEach(i => {
-        shoot(rb, rb.vertices[i], "player", this.color);
+        shoot(rb, vel, rb.vertices[i], "player", this.color);
       });
       timeSinceShoot = performance.now();
     }

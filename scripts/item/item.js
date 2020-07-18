@@ -25,8 +25,8 @@ function Item(pos, color="#d7b128", w=10, vertNum=4) {
     // ***************** //
   };
   this.moveToward = (entity, dist) => {
-    vel.x += (entity.body.x-rb.x) * this.speed/dist;
-    vel.y += (entity.body.y-rb.y) * this.speed/dist;
+    vel.x += (entity.velocity.x + entity.body.x-rb.x) * this.speed/dist;
+    vel.y += (entity.velocity.y + entity.body.y-rb.y) * this.speed/dist;
   };
   this.destroy = function () {
     game.remove("items", this.tag, this);

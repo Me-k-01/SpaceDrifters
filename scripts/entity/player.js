@@ -70,7 +70,7 @@ function Player(x, y, client) {
     if (controller.shoot && timeSinceShoot+self.shootDelay < ms) {
       // We take the shot
       self.shootIndex.forEach(i => {
-        shoot(rb, rb.vertices[i], "enemy", self.color);
+        shoot(rb, vel, rb.vertices[i], "enemy", self.color);
       });
       timeSinceShoot = performance.now();
     }

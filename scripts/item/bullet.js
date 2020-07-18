@@ -1,4 +1,4 @@
-function Bullet(coord, direction, dealDmgTo="player", color="#3cf3ff") {
+function Bullet(coord, vel, direction, dealDmgTo="player", color="#3cf3ff") {
   const self = this;
   // Body
   this.x = coord.x;
@@ -9,8 +9,8 @@ function Bullet(coord, direction, dealDmgTo="player", color="#3cf3ff") {
   // Movement
   this.speed = 8;
   this.velocity = {
-    x: direction.x * this.speed,
-    y: direction.y * this.speed
+    x: vel.x + direction.x * this.speed,
+    y: vel.y + direction.y * this.speed
   };
 
   let bounce = 0;
@@ -58,8 +58,8 @@ function Bullet(coord, direction, dealDmgTo="player", color="#3cf3ff") {
   };
 }
 
-function shoot(rb, toward, dealDmgTo, color) {
-  game.items.bullet.push(new Bullet(toward, {
+function shoot(rb, vel, toward, dealDmgTo, color) {
+  game.items.bullet.push(new Bullet(toward, vel, {
     x: (toward.x - rb.x ) / rb.radius, // Normaliser par la distance pour pas que la vitesse change suivant la taille de l'entité qui tire.
     y: (toward.y - rb.y ) / rb.radius
   }, dealDmgTo, color));
