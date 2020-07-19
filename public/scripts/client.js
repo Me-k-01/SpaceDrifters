@@ -1,6 +1,8 @@
 
 let name = "Anon";
-let ws = new WebSocket('ws://localhost:3000/socket', name);
+let ip = 'ws://2.tcp.eu.ngrok.io:11216/socket'
+// ip = 'ws://localhost:3000/socket'
+let ws = new WebSocket(ip, name);
 
 ws.onerror = function(err) {
   console.log('Socket encountered error: ', err, 'Closing socket');
