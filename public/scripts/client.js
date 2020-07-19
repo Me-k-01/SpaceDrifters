@@ -1,6 +1,6 @@
 
 let name = "Anon";
-let ip = 'ws://2.tcp.eu.ngrok.io:11216/socket'
+let ip = 'ws://0.tcp.eu.ngrok.io:12965/socket'
 // ip = 'ws://localhost:3000/socket'
 let ws = new WebSocket(ip, name);
 
