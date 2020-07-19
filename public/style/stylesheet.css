@@ -1,0 +1,14 @@
+html, body {
+  --color-white: #c2c4dd;
+  --color-background: #111111;
+  --color-background-2: #141414;
+  --color-prim: #0070c2;
+  background-color: var(--color-background);
+  font-family: "Gill Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--color-white);
+}
+canvas {
+  background-color: var(--color-background-2);
+}

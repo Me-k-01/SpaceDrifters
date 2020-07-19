@@ -1,0 +1,17 @@
+[
+  {
+    "enemies": [
+      {"quantity": 1, "type": "Planer", "property": {"health": 1}}
+    ]
+  },
+  {
+    "enemies": [
+      {"quantity": 3, "type": "Planer"}
+    ]
+  },
+  {
+    "enemies": [
+      {"quantity": 4, "type": "Planer"}
+    ]
+  }
+]

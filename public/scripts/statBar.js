@@ -3,6 +3,7 @@ function StatBar(coord, color="#53d748", w=100, h=10) {
   this.y = coord.y;
   this.w = w;
   this.h = h;
+  this.yOffset = 0;
   this.color = {
     main: color,
     background: "#333333"
@@ -12,7 +13,7 @@ function StatBar(coord, color="#53d748", w=100, h=10) {
   this.offsetY = 0;
   this.setPosition = function (coord) {
     this.x = coord.x;
-    this.y = coord.y;
+    this.y = coord.y - this.yOffset;
   };
 
   this.setProgress = function (progress) {
@@ -20,11 +21,11 @@ function StatBar(coord, color="#53d748", w=100, h=10) {
   };
 
   this.render = function (ctx) {
-    if (this.progress ===1) return;
+    //if (this.progress ===1) return;
     ctx.fillStyle = this.color.background;
-    ctx.fillRect(this.x-this.w/2, this.y+this.offsetY, this.w, this.h);
+    ctx.fillRect((this.x-this.w/2)*game.scale, this.y*game.scale, this.w*game.scale, this.h*game.scale);
     ctx.fillStyle = this.color.main;
-    ctx.fillRect(this.x-this.w/2, this.y+this.offsetY, this.w*this.progress, this.h);
+    ctx.fillRect((this.x-this.w/2)*game.scale, this.y*game.scale, this.w*this.progress*game.scale, this.h*game.scale);
   };
 }
 
