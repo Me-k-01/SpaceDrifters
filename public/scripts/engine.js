@@ -13,6 +13,8 @@ function Engine(fps = 60) {
 
   let tickLength = 1000/this.fps;
   let lastTick;
+  
+  /* Public */
   this.gameObjects = {
     player: [],
     enemy: [],
@@ -24,13 +26,16 @@ function Engine(fps = 60) {
     tickLength = 1000/self.fps;
   };
   this.resetCanvasDim = function () {
-    if (window.innerWidth/self.width < window.innerHeight/self.height) 
-      self.scale = window.innerWidth / self.width;
-    else
-      self.scale = window.innerHeight / self.height;
+    // Taille disponnible
+    const maxWidth = window.innerWidth,
+      maxHeight = window.innerHeight;
+
+    self.scale = (maxWidth / self.width < maxHeight / self.height) ? maxWidth / self.width : maxHeight / self.height;
     canvas.width = self.width*self.scale;
     canvas.height = self.height*self.scale;
   };
+
+  /* Private */
   const render = function () {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (const tag in self.gameObjects) {
@@ -39,6 +44,7 @@ function Engine(fps = 60) {
       }
     }
   };
+
   const update = function (ms) {
     for (const tag in self.gameObjects) {
       for (const gameObj of self.gameObjects[tag]) {
@@ -54,8 +60,8 @@ function Engine(fps = 60) {
     if (now-lastTick > 5000) {
       console.log("The game was put to sleep");
     }
-    while (lastTick+tickLength < now) { // On réitére l'update pour chaque fois necessaire.
-      lastTick+=tickLength;
+    while (lastTick + tickLength < now) { // On réitére l'update pour chaque fois necessaire.
+      lastTick += tickLength;
       update(lastTick);
     }
     render();

@@ -1,8 +1,9 @@
 
 let name = "Anon";
-let ip = 'ws://0.tcp.eu.ngrok.io:12965/socket'
-// ip = 'ws://localhost:3000/socket'
-let ws = new WebSocket(ip, name);
+console.log(window.location)
+let ip = `ws://${window.location}/socket`
+//let ip = 'ws://192.168.60.180:3000/socket'
+let ws = new WebSocket(ip);
 
 ws.onerror = function(err) {
   console.log('Socket encountered error: ', err, 'Closing socket');
@@ -56,6 +57,7 @@ ws.onmessage = function (event) {
     }
   } catch (err) { // Retrieve data
     if (err.message === "game.gameObjects[tag][i] is undefined") {
+      console.log("packet-loss");
       ws.send("packet-loss");
     } else {
       throw err;

@@ -20,9 +20,9 @@
     }
   ];
   const stateMaps = [{}, {}];
-  for ( const action of Object.values(keyMaps[0])) {
-    stateMaps[0][action] = false;
-    stateMaps[1][action] = false;
+  for ( const actionName of Object.values(keyMaps[0])) {
+    stateMaps[0][actionName] = false;
+    stateMaps[1][actionName] = false;
   }
 
   const press = (ev) => {
