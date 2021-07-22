@@ -24,7 +24,7 @@ function ParticleReverse(x, y) {
 
 }
 
-function Particles(positionCenter, quantity=10, duration=1, color="#d7b128", reverse=false) {
+function Particles(positionCenter, quantity=100, duration=1, color="#d7b128", reverse=false) {
   this.x = positionCenter.x;
   this.y = positionCenter.y;
 

@@ -14,7 +14,7 @@ function TriEnemy(x, y, customProp) {
     ShootDelay: 0.01,
     Life: 0.01,
   };
-  const shootDelay = 2000;
+  const shootDelay = 1000;
   let timeSinceShoot = 0;
   let timeSinceReTarget = -4000;
   const targetDelay = 2000;

@@ -103,7 +103,7 @@ function Entity(x, y, sideNum, color = "#d7b128") {
   this.shootIndex = [0]; // Indices de par quelle vertex l'entité peut tirer
 
   // Vie
-  this.healthMax = 10;
+  this.healthMax = 3;
   this.health = this.healthMax;
   this.healthBar = new StatBar(rb);
   this.healthBar.setProgress(1);

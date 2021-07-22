@@ -56,7 +56,7 @@
             if ( lastEffect+Math.random()*delay<ms ) {
               const position ={x: Math.random()*canvas.width, y: Math.random()*canvas.height};
               const color = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`
-              new Particles(position, 20, 1, color);
+              new Particles(position, 100, 1, color);
               lastEffect = performance.now();
             }
           },
